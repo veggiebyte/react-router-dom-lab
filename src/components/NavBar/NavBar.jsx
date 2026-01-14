@@ -1,4 +1,3 @@
-// src/components/NavBar/NavBar.jsx
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
@@ -9,10 +8,10 @@ const NavBar = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/mailboxes">Mailboxes</Link>
+          <Link to="/mailboxes">Resident Mailboxes</Link>
         </li>
         <li>
-          <Link to="/new-mailbox">New Mailbox</Link>
+          <Link to="/new-mailbox">New Resident</Link>
         </li>
       </ul>
     </nav>

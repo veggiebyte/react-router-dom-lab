@@ -4,8 +4,13 @@ import { useNavigate } from 'react-router-dom';
 const MailboxForm = (props) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    boxOwner: '',
-    boxSize: 'Small'
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    buildingNumber: '',
+    unitNumber: '',
+    boxSize: 'Standard'
   });
 
   const handleSubmit = (e) => {
@@ -20,31 +25,83 @@ const MailboxForm = (props) => {
 
   return (
     <main>
-      <h2>New Mailbox</h2>
+      <h2>Register New Resident</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="boxOwner">Box Owner:</label>
+        <label htmlFor="firstName">First Name:</label>
         <input
           type="text"
-          id="boxOwner"
-          name="boxOwner"
-          value={formData.boxOwner}
+          id="firstName"
+          name="firstName"
+          value={formData.firstName}
           onChange={handleChange}
           required
         />
 
-        <label htmlFor="boxSize">Box Size:</label>
+        <label htmlFor="lastName">Last Name:</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="email">Email Address:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="phoneNumber">Phone Number:</label>
+        <input
+          type="tel"
+          id="phoneNumber"
+          name="phoneNumber"
+          value={formData.phoneNumber}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="buildingNumber">Building Number:</label>
+        <input
+          type="text"
+          id="buildingNumber"
+          name="buildingNumber"
+          value={formData.buildingNumber}
+          onChange={handleChange}
+          placeholder="e.g., 33"
+          required
+        />
+
+        <label htmlFor="unitNumber">Unit Number:</label>
+        <input
+          type="text"
+          id="unitNumber"
+          name="unitNumber"
+          value={formData.unitNumber}
+          onChange={handleChange}
+          placeholder="e.g., 101B"
+          required
+        />
+
+        <label htmlFor="boxSize">Mailbox Size:</label>
         <select
           id="boxSize"
           name="boxSize"
           value={formData.boxSize}
           onChange={handleChange}
         >
-          <option value="Small">Small</option>
-          <option value="Medium">Medium</option>
-          <option value="Large">Large</option>
+          <option value="Standard">Standard</option>
+          <option value="Medium">Medium (+$5/month)</option>
+          <option value="Large">Large (+$10/month)</option>
         </select>
 
-        <button type="submit">Create Mailbox</button>
+        <button type="submit">Register Resident</button>
       </form>
     </main>
   );
