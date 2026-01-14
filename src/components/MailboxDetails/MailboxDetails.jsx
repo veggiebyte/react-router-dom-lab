@@ -1,3 +1,4 @@
+// src/components/MailboxDetails/MailboxDetails.jsx
 import { useParams } from 'react-router-dom';
 
 const MailboxDetails = (props) => {
@@ -7,13 +8,18 @@ const MailboxDetails = (props) => {
   );
 
   if (!selectedBox) {
-    return <main><h2>Mailbox Not Found!</h2></main>;
+    return (
+      <main>
+        <h2>Mailbox Not Found!</h2>
+        <p>The mailbox you're looking for doesn't exist in our system.</p>
+      </main>
+    );
   }
 
   return (
     <main>
       <h2>Resident Mailbox Details</h2>
-      <div>
+      <div className="details-container">
         <p><strong>Mailbox Number:</strong> {selectedBox._id}</p>
         <p><strong>Resident Name:</strong> {selectedBox.firstName} {selectedBox.lastName}</p>
         <p><strong>Email:</strong> {selectedBox.email}</p>

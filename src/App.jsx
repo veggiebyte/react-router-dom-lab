@@ -40,9 +40,7 @@ const App = () => {
     }
   ]);
 
-
   const addBox = (formData) => {
-    // Create mailbox ID in format: buildingNumber-unitNumber
     const mailboxId = `${formData.buildingNumber}-${formData.unitNumber}`;
     
     const newMailbox = {
@@ -53,15 +51,38 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className="app-container">
+      <header className="app-header">
+        <img src="/images/mailhub_logo.png" alt="MailHub Manager" className="logo" />
+        <p className="tagline">
+          Apartment Community<br />
+          Mail Management System
+        </p>
+      </header>
+      
       <NavBar />
+      
       <Routes>
-        <Route path="/" element={<main><h1>Resident Mailbox Management</h1><p>Apartment Complex Mail Center</p></main>} />
+        <Route path="/" element={
+          <main className="home-content">
+            <p>
+              MailHub Manager is a comprehensive mailbox management solution designed specifically 
+              for apartment communities and multi-building residential complexes. Our system streamlines 
+              mailroom operations, enabling leasing office staff to efficiently track resident mailbox 
+              assignments, manage mailbox sizes, and maintain accurate tenant contact information.
+            </p>
+            <p>
+              With MailHub Manager, property management teams can easily register new residents, 
+              assign mailboxes based on building and unit numbers, and provide tenants with flexible 
+              mailbox size options to accommodate their delivery needs.
+            </p>
+          </main>
+        } />
         <Route path="/mailboxes" element={<MailboxList mailboxes={mailboxes} />} />
         <Route path="/new-mailbox" element={<MailboxForm addBox={addBox} />} />
         <Route path="/mailboxes/:mailboxId" element={<MailboxDetails mailboxes={mailboxes} />} />
       </Routes>
-    </>
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ const MailboxList = (props) => {
   return (
     <main>
       <h2>Resident Mailbox Directory</h2>
-      <div>
+      <div className="mailbox-grid">
         {props.mailboxes.map((mailbox) => (
           <Link key={mailbox._id} to={`/mailboxes/${mailbox._id}`}>
             <div className="mail-box">
