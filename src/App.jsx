@@ -13,7 +13,7 @@ const App = () => {
       firstName: 'Sarah',
       lastName: 'Johnson',
       email: 'sarah.j@email.com',
-      phoneNumber: '555-0123',
+      phoneNumber: '412-555-0123',
       buildingNumber: '33',
       unitNumber: '101B',
       boxSize: 'Standard'
@@ -23,7 +23,7 @@ const App = () => {
       firstName: 'Michael',
       lastName: 'Chen',
       email: 'mchen@email.com',
-      phoneNumber: '555-0456',
+      phoneNumber: '412-555-0456',
       buildingNumber: '33',
       unitNumber: '205A',
       boxSize: 'Large'
@@ -33,11 +33,23 @@ const App = () => {
       firstName: 'Emma',
       lastName: 'Rodriguez',
       email: 'e.rodriguez@email.com',
-      phoneNumber: '555-0789',
+      phoneNumber: '412-555-0789',
       buildingNumber: '42',
       unitNumber: '112C',
       boxSize: 'Medium'
+    },
+
+        {
+      _id: '40-160A',
+      firstName: 'Peter',
+      lastName: 'Wolfe',
+      email: 'petew@email.com',
+      phoneNumber: '412-555-0789',
+      buildingNumber: '40',
+      unitNumber: '160A',
+      boxSize: 'Large'
     }
+
   ]);
 
   const addBox = (formData) => {
@@ -76,6 +88,7 @@ const App = () => {
               assign mailboxes based on building and unit numbers, and provide tenants with flexible 
               mailbox size options to accommodate their delivery needs.
             </p>
+            <img src="/images/apartment_building.png" alt="Apartment Building" className="home-image" />
           </main>
         } />
         <Route path="/mailboxes" element={<MailboxList mailboxes={mailboxes} />} />

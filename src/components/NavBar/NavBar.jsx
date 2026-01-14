@@ -5,13 +5,13 @@ const NavBar = () => {
   return (
     <nav>
       <Link to="/">
-        <span>🏠</span> Home
+        Home
       </Link>
       <Link to="/mailboxes">
-        <span>📬</span> Resident Mailboxes
+        Resident Mailboxes
       </Link>
       <Link to="/new-mailbox">
-        <span>👤</span> New Resident
+        New Resident
       </Link>
     </nav>
   );

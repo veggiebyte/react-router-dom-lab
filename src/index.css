@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
 :root {
   --teal: #008d94;
   --dark-blue: #01315c;
   --white: #ffffff;
   
-  font-family: 'Raleway', system-ui, Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   line-height: 1.6;
   font-weight: 400;
 
@@ -52,16 +52,16 @@ body {
   max-width: 400px;
   width: 100%;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .tagline {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   color: var(--dark-blue);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: 1.4;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -78,18 +78,25 @@ nav a {
   background-color: var(--teal);
   color: var(--white);
   text-decoration: none;
-  padding: 12px 24px;
+  padding: 14px 28px;
   border-radius: 6px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 17px;
   transition: background-color 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  min-width: 180px;
+  justify-content: center;
 }
 
 nav a:hover {
   background-color: var(--dark-blue);
+}
+
+nav a .icon {
+  font-size: 20px;
+  filter: brightness(0) invert(1);
 }
 
 /* MAIN CONTENT */
@@ -103,6 +110,7 @@ h1 {
   color: var(--dark-blue);
   margin-bottom: 20px;
   text-align: center;
+  font-weight: 700;
 }
 
 h2 {
@@ -111,12 +119,15 @@ h2 {
   color: var(--dark-blue);
   border-bottom: 3px solid var(--teal);
   padding-bottom: 10px;
+  font-weight: 700;
+  text-align: center;
 }
 
 p {
   color: #333;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.8;
+  font-weight: 500;
 }
 
 /* MAILBOX CARDS */
@@ -144,12 +155,17 @@ p {
 }
 
 .mail-box p {
-  margin: 8px 0;
+  margin: 10px 0;
   color: var(--white);
+  font-weight: 500;
+  font-size: 16px;
 }
 
-.mail-box strong {
-  color: var(--teal);
+.mail-box .box-number {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 12px;
 }
 
 a {
@@ -173,7 +189,7 @@ label {
   margin: 12px 0px 6px 0px;
   font-weight: 700;
   color: var(--dark-blue);
-  font-size: 16px;
+  font-size: 17px;
 }
 
 input,
@@ -186,7 +202,7 @@ textarea {
   background-color: var(--white);
   color: #000000;
   font-size: 16px;
-  font-family: 'Raleway', system-ui, Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 input:focus,
@@ -208,7 +224,7 @@ button {
   margin: 20px 0px 10px 0px;
   font-size: 18px;
   font-weight: 700;
-  font-family: 'Raleway', system-ui, Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   background-color: var(--teal);
   color: var(--white);
   cursor: pointer;
@@ -239,6 +255,7 @@ button:focus-visible {
   margin: 15px 0;
   font-size: 18px;
   color: #333;
+  font-weight: 500;
 }
 
 .details-container strong {
@@ -251,13 +268,26 @@ button:focus-visible {
   max-width: 800px;
   margin: 40px auto;
   text-align: center;
+  position: relative;
+  padding-bottom: 320px;
 }
 
 .home-content p {
-  font-size: 18px;
-  line-height: 1.8;
-  margin: 20px 0;
-  color: #333;
+  font-size: 19px;
+  line-height: 1.9;
+  margin: 25px 0;
+  color: #222;
+  font-weight: 500;
+}
+
+.home-image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 600px;
+  width: 100%;
+  height: auto;
 }
 
 /* RESPONSIVE */
@@ -271,17 +301,19 @@ button:focus-visible {
   }
   
   .tagline {
-    font-size: 11px;
+    font-size: 13px;
+    letter-spacing: 1px;
   }
   
   nav {
     flex-direction: column;
     gap: 10px;
+    align-items: stretch;
   }
   
   nav a {
     width: 100%;
-    justify-content: center;
+    min-width: unset;
   }
   
   h1 {
@@ -294,5 +326,36 @@ button:focus-visible {
   
   .mailbox-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .home-content {
+    padding-bottom: 280px;
+  }
+  
+  .home-image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  nav a {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .tagline {
+    font-size: 11px;
+  }
+  
+  .home-content p {
+    font-size: 16px;
+  }
+  
+  .home-content {
+    padding-bottom: 220px;
+  }
+  
+  .home-image {
+    max-width: 90%;
   }
 }
