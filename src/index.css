@@ -291,6 +291,61 @@ button:focus-visible {
   display: block;
 }
 
+/* MESSAGES SECTION */
+.messages-section {
+  max-width: 700px;
+  margin: 40px auto 20px auto;
+}
+
+.messages-section h3 {
+  font-size: 1.5em;
+  color: var(--dark-blue);
+  border-bottom: 2px solid var(--teal);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.no-messages {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 20px;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message-card {
+  background-color: #f9f9f9;
+  border: 2px solid var(--teal);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.message-card p {
+  margin: 8px 0;
+}
+
+.message-card strong {
+  color: var(--dark-blue);
+}
+
+.message-text {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #ddd;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .app-container {

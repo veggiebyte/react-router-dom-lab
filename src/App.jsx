@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import MailboxForm from './components/MailboxForm/MailboxForm';
 import MailboxList from './components/MailboxList/MailboxList';
 import MailboxDetails from './components/MailboxDetails/MailboxDetails';
+import MessageForm from './components/MessageForm/MessageForm';
 
 const App = () => {
   const [mailboxes, setMailboxes] = useState([
@@ -13,7 +14,7 @@ const App = () => {
       firstName: 'Sarah',
       lastName: 'Johnson',
       email: 'sarah.j@email.com',
-      phoneNumber: '412-555-0123',
+      phoneNumber: '555-0123',
       buildingNumber: '33',
       unitNumber: '101B',
       boxSize: 'Standard'
@@ -23,7 +24,7 @@ const App = () => {
       firstName: 'Michael',
       lastName: 'Chen',
       email: 'mchen@email.com',
-      phoneNumber: '412-555-0456',
+      phoneNumber: '555-0456',
       buildingNumber: '33',
       unitNumber: '205A',
       boxSize: 'Large'
@@ -33,33 +34,40 @@ const App = () => {
       firstName: 'Emma',
       lastName: 'Rodriguez',
       email: 'e.rodriguez@email.com',
-      phoneNumber: '412-555-0789',
+      phoneNumber: '555-0789',
       buildingNumber: '42',
       unitNumber: '112C',
       boxSize: 'Medium'
     },
-
-        {
-      _id: '40-160A',
-      firstName: 'Peter',
-      lastName: 'Wolfe',
-      email: 'petew@email.com',
-      phoneNumber: '412-555-0789',
-      buildingNumber: '40',
-      unitNumber: '160A',
-      boxSize: 'Large'
+    {
+      _id: '42-203D',
+      firstName: 'James',
+      lastName: 'Patterson',
+      email: 'j.patterson@email.com',
+      phoneNumber: '555-0321',
+      buildingNumber: '42',
+      unitNumber: '203D',
+      boxSize: 'Standard'
     }
-
   ]);
+
+  const [messages, setMessages] = useState([]);
 
   const addBox = (formData) => {
     const mailboxId = `${formData.buildingNumber}-${formData.unitNumber}`;
-    
+
     const newMailbox = {
       _id: mailboxId,
       ...formData
     };
     setMailboxes([...mailboxes, newMailbox]);
+  };
+
+  const addMessage = (formData) => {
+    const newMessage = {
+      ...formData
+    };
+    setMessages([...messages, newMessage]);
   };
 
   return (
@@ -71,29 +79,32 @@ const App = () => {
           Mail Management System
         </p>
       </header>
-      
+
       <NavBar />
-      
+
       <Routes>
         <Route path="/" element={
           <main className="home-content">
             <p>
-              MailHub Manager is a comprehensive mailbox management solution designed specifically 
-              for apartment communities and multi-building residential complexes. Our system streamlines 
-              mailroom operations, enabling leasing office staff to efficiently track resident mailbox 
+              MailHub Manager is a comprehensive mailbox management solution designed specifically
+              for apartment communities and multi-building residential complexes. Our system streamlines
+              mailroom operations, enabling leasing office staff to efficiently track resident mailbox
               assignments, manage mailbox sizes, and maintain accurate tenant contact information.
             </p>
             <p>
-              With MailHub Manager, property management teams can easily register new residents, 
-              assign mailboxes based on building and unit numbers, and provide tenants with flexible 
-              mailbox size options to accommodate their delivery needs.
+              With MailHub Manager, property management teams can easily register new residents,
+              assign mailboxes based on building and unit numbers, and provide tenants with flexible
+              mailbox size options to accommodate their delivery needs. Office staff can also send
+              messages and notifications directly to residents' mailboxes for package pickups,
+              maintenance alerts, and important community announcements.
             </p>
             <img src="/images/apartment_building.png" alt="Apartment Building" className="home-image" />
           </main>
         } />
         <Route path="/mailboxes" element={<MailboxList mailboxes={mailboxes} />} />
         <Route path="/new-mailbox" element={<MailboxForm addBox={addBox} />} />
-        <Route path="/mailboxes/:mailboxId" element={<MailboxDetails mailboxes={mailboxes} />} />
+        <Route path="/mailboxes/:mailboxId" element={<MailboxDetails mailboxes={mailboxes} messages={messages} />} />
+        <Route path="/new-message" element={<MessageForm addMessage={addMessage} mailboxes={mailboxes} />} />
       </Routes>
     </div>
   );

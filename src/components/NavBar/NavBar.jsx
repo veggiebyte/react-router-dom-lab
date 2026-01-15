@@ -16,6 +16,10 @@ const NavBar = () => {
         <img src="/images/person_icon.png" alt="" />
         New Resident
       </Link>
+      <Link to="/new-message">
+        <img src="/images/message_icon.png" alt="" />
+        New Message
+      </Link>
     </nav>
   );
 };

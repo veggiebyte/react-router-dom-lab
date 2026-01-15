@@ -7,6 +7,10 @@ const MailboxDetails = (props) => {
     (mailbox) => mailbox._id === mailboxId
   );
 
+  const selectedMessages = props.messages.filter(
+    (message) => message.mailboxId === mailboxId
+  );
+
   if (!selectedBox) {
     return (
       <main>
@@ -27,6 +31,22 @@ const MailboxDetails = (props) => {
         <p><strong>Building:</strong> {selectedBox.buildingNumber}</p>
         <p><strong>Unit:</strong> {selectedBox.unitNumber}</p>
         <p><strong>Mailbox Size:</strong> {selectedBox.boxSize}</p>
+      </div>
+
+      <div className="messages-section">
+        <h3>Messages for this Resident</h3>
+        {selectedMessages.length === 0 ? (
+          <p className="no-messages">No messages yet.</p>
+        ) : (
+          <div className="messages-list">
+            {selectedMessages.map((message, index) => (
+              <div key={index} className="message-card">
+                <p><strong>To:</strong> {message.recipient}</p>
+                <p className="message-text">{message.message}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </main>
   );
